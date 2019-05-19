@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: com.pinyougou:pinyougou-pojo:0.0.5-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/pinyougou/pinyougou-pojo/0.0.5-SNAPSHOT/pinyougou-pojo-0.0.5-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/pinyougou-pojo/pinyougou-pojo-0.0.5-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/pinyougou/pinyougou-pojo/0.0.5-SNAPSHOT/pinyougou-pojo-0.0.5-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/pinyougou-pojo/pinyougou-pojo-0.0.5-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/pinyougou/pinyougou-pojo/0.0.5-SNAPSHOT/pinyougou-pojo-0.0.5-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
