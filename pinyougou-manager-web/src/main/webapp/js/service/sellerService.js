@@ -1,6 +1,9 @@
 //服务层
 app.service('sellerService',function($http){
-	    	
+    //修改商家的状态
+    this.updateStatus=function(sellerId,status){
+        return  $http.post('../seller/updateStatus.do?sellerId='+sellerId+'&status='+status );
+    }
 	//读取列表数据绑定到表单中
 	this.findAll=function(){
 		return $http.get('../seller/findAll.do');		

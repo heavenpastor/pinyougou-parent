@@ -10,6 +10,8 @@ import entity.PageResult;
  */
 public interface ItemCatService {
 
+	public List<TbItemCat> findByParentId(Long parentId);
+
 	/**
 	 * 返回全部列表
 	 * @return

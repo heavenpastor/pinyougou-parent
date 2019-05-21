@@ -1,7 +1,15 @@
  //控制层 
-app.controller('itemCatController' ,function($scope,$controller   ,itemCatService){	
+app.controller('itemCatController' ,function($scope,$controller   ,itemCatService){
 	
 	$controller('baseController',{$scope:$scope});//继承
+
+	$scope.findByParentId = function (parentId) {
+		itemCatService.findByParentId(parentId).success(
+			function (response) {
+				$scope.list = response;
+            }
+		)
+    }
 	
     //读取列表数据绑定到表单中  
 	$scope.findAll=function(){

@@ -11,6 +11,11 @@ import entity.PageResult;
 public interface SellerService {
 
 	/**
+	 * 更新供应商的审核状态
+	 */
+	public void updateStatus(String sellerId,String status);
+
+	/**
 	 * 返回全部列表
 	 * @return
 	 */

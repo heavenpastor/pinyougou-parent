@@ -1,8 +1,21 @@
  //控制层 
-app.controller('sellerController' ,function($scope,$controller   ,sellerService){	
+app.controller('sellerController' ,function($scope,$controller,sellerService){
 	
 	$controller('baseController',{$scope:$scope});//继承
-	
+
+	$scope.updateStatus=function (sellerId,status) {
+		sellerService.updateStatus(sellerId,status).success(
+			//如果这个方法没有返回值，那么对应的resopnse可以直接按照如下方式进行
+			function(response){
+				if(response.success){
+					$scope.reloadList();//刷新列表
+				}else{
+					alter("审核操作失败");
+				}
+		}
+		)
+    }
+
     //读取列表数据绑定到表单中  
 	$scope.findAll=function(){
 		sellerService.findAll().success(
