@@ -1,8 +1,11 @@
 package com.pinyougou.shop.service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.pinyougou.pojo.TbSeller;
-import com.pinyougou.sellergoods.service.SellerService;
+import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -10,20 +13,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.pinyougou.pojo.TbSeller;
+import com.pinyougou.sellergoods.service.SellerService;
+
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 
-    private SellerService sellService;
+    private SellerService sellerService;
 
-    public SellerService getSellService() {
-        return sellService;
-    }
-
-    public void setSellService(SellerService sellService) {
-        this.sellService = sellService;
+    public void setSellerService(SellerService sellerService) {
+        this.sellerService = sellerService;
     }
 
     @Override
@@ -34,19 +34,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         grantAuths.add(new SimpleGrantedAuthority("ROLE_SELLER"));
 
 
-        TbSeller tbSeller = sellService.findOne(username);
-
-        User user = new User(username, tbSeller.getPassword(), grantAuths);
-        if(tbSeller!=null){
-            if(tbSeller.getStatus().equals("1")){
-                return new User(username,tbSeller.getPassword(),grantAuths);
+        System.out.println("a");
+        TbSeller seller = sellerService.findOne(username);
+        System.out.println("b");
+        if(seller!=null){
+            if(seller.getStatus().equals("1")){
+                return new User(username,seller.getPassword(),grantAuths);
             }else{
                 return null;
             }
         }else{
             return null;
         }
-
-
     }
 }
+
